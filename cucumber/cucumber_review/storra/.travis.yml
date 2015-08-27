@@ -1,0 +1,16 @@
+---
+language: node_js
+node_js:
+  - '0.10'
+
+# We need a running MongoDB instance for integration tests for the MongoDB
+# backend.
+services:
+  - mongodb
+
+before_script:
+  - npm install -g jasmine-node@~1.2.3 cucumber@~0.3.0 grunt-cli
+
+branches:
+  except:
+    - mocha

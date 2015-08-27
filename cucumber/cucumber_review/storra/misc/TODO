@@ -1,0 +1,138 @@
+=== STORRA ===
+
+
+== Storra Core Features ==
+
+= Basics =
+* Rename: backend -> backend connector (or short: connector)
+* Remove code duplication in backends. Especially the two in-memory backends
+  have some duplicated code, but mongo also.
+* Remove inconsistency: When calling methods which take an optional parameter,
+always pass null instead of leaving the parameter out.
+* TODO comments in various files
+
+= Misc =
+* Get rid of fixed routing - collection/document to allow backends with a more nesting levels or which are not simple key-value document stores
+* configure routing per yaml? let backend configure routing?
+* Check out warehouse.js and RQL
+
+= Tests =
+* Switch from Jasmine to mocha/sinon/chai
+* Performance tests
+  - Performance testing with different backends, without network latency, without concurrent requests
+  - Load/throughput tests with a huge number of concurrent requests - choose a backend, which supports this scenario well. Second step: Execute these tests with different backends.
+  - Performance tests including *local* network latency and with comparisons to accessing the DB directly
+  - Performance tests for distributed scenario (Storra as a hosted service somewhere else) - conclusions?
+
+= HTTP communication =
+* Also return on every request (where appropriate) headers x-storra-collection
+  and x-storra-key or something like that, so that client do not need to parse
+  the location header when they want to access the ids. Extend specs and use
+  the ids in cucumber.
+* Streaming when returning a collection: Does the current implementation really send doc by doc to the client? Can other requests be responded to in between?
+* Streaming when returning a collection: Is it better to process multiple documents in one chunk?
+* Write Content-Length header with every request.
+* Evaluate implicit headers (response.setHeader and response.statusCode instead of response.writeHeader) - probably more maintainable than merging headers and then writing them with writeHead.
+* PUT/POST - what happens if no body is received? Will the requests time out? Or will they just keep the connection forever? Also write integration test for this (routing_integration.spec.coffee)
+  I'm pretty sure that the requests emits the 'end' handler in any case, if the client has *finished sending* the requst, no matter if a the request had a body, or not. But: What happens if the client does not finish sending the request (dies in the middle of sending the body, for example)? Does node.js time out cleanly?
+* Protect PUT/POST body reading code against clients which send too much data to prevent a DOS attack. There's a discussion about that on stackoverflow in a question on how to read post parameters.
+* Enable HTTP caching (Last-Modified-Header, ETags etc.)
+
+= Queryies =
+* how to query RESTful?
+* unified query language for all backends or individual queries for each backend?
+* use MongoDB and CouchDB to validate the proof of concept - can we easily map the storra query language to both backends? Or, the other way round, are the query interfaces of both similar enough to guide the way to the unified NoSQL query API?
+* -> GitHub
+
+= very far in the future =
+* Built-in multi-tenant-capabilities would be cool, maybe, or something like multiple virtual storra servers under one "physical" storra servers (each configured separately) - think shared storra hosting
+* Quota capabilites (think free accounts, cheap accounts, premium accounts)
+* Push capabilities (push stuff to mobile phones when certain data is changed/added)
+* More Hateoas stuff - links between resources, service document etc. ...
+* Offer HTML as media type in addition to JSON? (Hypermedia API)
+
+== Backends ==
+* Add more backends, a whole lot of them, one after another...
+  - Caution: For hosted Storra, this is less important. The customer probably does not really care about the backend.
+  - Redis!
+  - LevelDB!
+  - MongoDB: Done (well, sort of)
+  - HBase
+  - CouchDB?
+  - Riak?
+  - Traditional SQL DBs?
+    - MySQL
+    - sqlite
+    - Oracle??
+
+= MongoDB connector =
+
+* Various improvements in MongoDB backend (see comments there)
+* If mongodb is not reachable all requests should respond 500.
+
+
+== In Memory Connectors (node-dirty and nStore)
+
+* Use callback versions of node-dirty API everywhere
+
+
+== Authentication ==
+
+* There is never any authentication with regard to the tenant.
+* Thus, there is no secret that the tenant needs to keep.
+* All authentication always happens only with regard to a single user.
+* All authentication happens by oauth.
+* The user can log into an app that is powered by storra.com by authenticating himself with an oauth provider.
+* storra.com itself might act as an oauth provider
+* storra.com itself might offer an oauth compatible user database service - as a service for its tenants
+* In Oauth 2.0 spec terms:
+  - The web app of the storra.com tenant is the client
+  - The authorization server is either some existing Oauth provider or auth.storra.com
+  - The user of the tenant's web app is the resource owner
+  - storra.com is the resource server
+* It must be possible for the tenant to post data for a new user that has just
+  registered at the tenant's web app.
+
+
+== storra.com infrastructure ==
+
+* Requirements:
+  - Load Balancing
+  - Fail Over
+  - Monitor/restart node processes
+  - SSL
+* Solutions
+  - Look into node-supervisor and similar solutions
+  - nginx before Storra?
+
+
+== Storra Authentication Components ==
+
+!! Everything written in this section is utter nonsense, I think. !!
+
+* Provide small authentication components for as many possible backend technologies as possible.
+  Each needs to be set up as easily as possible.
+  Candidates:
+  - Apache Module
+  - PHP
+  - Perl/cgi-bin
+  - Java (Servlet in War)
+  - Python, Ruby
+  - node.js
+
+  The authentication component is the only server/backend component a storra.com customer needs
+  to set up in its own infrastructure. This is required because with only static assets
+  (html, css, js) there is simply no place where you could put a private key or any other
+  (shared) secret.
+
+  Thus, each storra.com customer runs the auth component in its own IT. :-(
+  The auth component could issue short lived tickets or whatever...
+
+  And then??? We still need to secure the auth component against unauthorized access.
+
+
+== Storra Security Concerns and Todos ==
+
+* Deny access everybody except users
+* Enforce isolation of tenants
+

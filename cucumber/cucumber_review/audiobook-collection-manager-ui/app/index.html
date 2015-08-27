@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" ng-app="aboco-ui">
+<head>
+  <meta charset="utf-8">
+  <title>Audio Book Collection Manager</title>
+
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+
+  <script src="lib/angular/angular.js"></script>
+  <script src="lib/angular/angular-resource.js"></script>
+
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/directives.js"></script>
+
+</head>
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="#">Audiobook Collection Manager</a>
+      <ul class="nav">
+        <li><a href="#/audiobooks">List of Audiobooks</a></li> <!--class="active"-->
+        <li><a href="#/audiobooks/new">Add new Audiobook</a></li> <!--class="active"-->
+        <li><a href="#/about">About</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container">
+    <div ng-view/>
+  </div>
+
+</body>
+</html>

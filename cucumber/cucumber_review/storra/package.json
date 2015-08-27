@@ -1,0 +1,60 @@
+{
+  "name": "storra",
+  "version": "0.0.1",
+  "author": "Bastian Krol",
+  "description": "a generic stand-alone data store with a RESTful interface which can be configured to use different storage engines (MongoDB, nStore, node-dirty, ...), all encapsulated behind the same REST API",
+  "repository": "https://github.com/basti1302/storra.git",
+  "contributors": [],
+  "preferGlobal": "true",
+  "bin": {
+    "storra": "./lib/index.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "grunt full"
+  },
+  "keywords": [
+    "persistence",
+    "key value",
+    "document store",
+    "REST",
+    "http"
+  ],
+  "dependencies": {
+    "dirty": "0.9.x",
+    "errno-codes": "~1.0.2",
+    "js-yaml": "2.0.x",
+    "mongodb": "1.2.x",
+    "node-uuid": "1.4.x",
+    "nstore": "git+https://github.com/basti1302/nstore.git#0.5.2-constants",
+    "winston": "~0.7.2",
+    "wire": "~0.10.0"
+  },
+  "comment_devDependencies": {
+    "comment": "Some stuff should be installed globally by doing npm install -g <package>@<version>. There is no way to do that via package.json. So it is just mentioned here as a reminder.",
+    "jasmine-node": "1.2.x",
+    "cucumber": "~0.3.0",
+    "grunt-cli": "~0.4.1",
+    "supervisor": "Using supervisor during development is also highly recommended."
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-coffeelint": "0.0.6",
+    "grunt-jasmine-node": "git://github.com/magicmoose/grunt-jasmine-node.git",
+    "grunt-cucumber": "~0.2.3",
+    "grunt-contrib-watch": "~0.4.4",
+    "request": "~2.21",
+    "sandboxed-module": "0.2.x",
+    "step": ">=0.0.5"
+  },
+  "bundledDependencies": [
+    "dirty",
+    "node-uuid",
+    "nstore",
+    "step"
+  ],
+  "engines": {
+    "node": ">=0.8.21"
+  }
+}

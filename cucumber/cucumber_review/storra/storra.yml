@@ -1,0 +1,12 @@
+# Use this file to configure Storra. The values which are commented out here
+# denote the default values.
+
+core:
+  #port: 1302
+  #bindAddress: "0.0.0.0"
+  #backend: "./backends/node_dirty_backend"
+
+mongodb:
+  #connectionMaxRetries: 20
+  #connectionTimeBetweenRetries: 50
+  #database: "storra"

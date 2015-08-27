@@ -1,3 +1,0 @@
-[submodule "rails/reliably-deploying/4.0-quick-start-5-minute-server/rails-server-template"]
-	path = rails/reliably-deploying/4.0-quick-start-5-minute-server/rails-server-template
-	url = https://github.com/TalkingQuickly/rails-server-template.git
