@@ -5,8 +5,12 @@ get '/' do
   erb :home
 end
 
+get '/about' do
+  erb :about
+end
+
 __END__
-@@home
+@@layout
 
 <% title = "Songs" %>
 
@@ -27,8 +31,13 @@ __END__
 </ul> </nav>
   </header>
   <section>
-    <p>Welcome to this website all about the songs of the great
-      Frank Sinatra</p>
+    <%= yield %>
   </section>
 </body>
 </html>
+
+@@home
+<p> Welcome to the home page </p>
+
+@@about
+<p> Welcome to the about page </p>
