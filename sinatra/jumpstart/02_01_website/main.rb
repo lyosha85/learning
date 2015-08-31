@@ -19,3 +19,8 @@ end
 not_found do
   erb :not_found # still uses layout.erb as layout
 end
+
+get "/fake-error" do
+  status 500
+  "Nothing is wrong.."
+end
