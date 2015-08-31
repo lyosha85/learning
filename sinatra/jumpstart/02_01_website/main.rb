@@ -6,7 +6,7 @@ get '/' do
 end
 
 get '/about' do
-  erb :about
+  erb :about, layout: :special
 end
 
 get '/contact' do
@@ -48,3 +48,7 @@ __END__
 
 @@contact
 <p> Welcome to the about page </p>
+
+@@special
+<h2>This is a special layout</h2>
+<%= yield %>
