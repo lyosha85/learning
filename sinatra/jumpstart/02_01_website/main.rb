@@ -16,3 +16,6 @@ get '/contact' do
   erb :about
 end
 
+not_found do
+  erb :not_found # still uses layout.erb as layout
+end
