@@ -9,6 +9,10 @@ get '/about' do
   erb :about
 end
 
+get '/contact' do
+  erb :about
+end
+
 __END__
 @@layout
 
@@ -40,4 +44,7 @@ __END__
 <p> Welcome to the home page </p>
 
 @@about
+<p> Welcome to the about page </p>
+
+@@contact
 <p> Welcome to the about page </p>
