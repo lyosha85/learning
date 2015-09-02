@@ -10,8 +10,10 @@
 <body>
   <script type="text/x-handlebars">
     <div class="navbar">
-    {{#link-to 'index' class='navbar-brand'}} Home {{/link-to}}
-    {{#link-to 'about'}} About {{/link-to}}
+    <ul class="nav navbar-nav navbar-right">
+      {{#link-to 'index' tagName='li' class='navbar-brand'}} Home {{/link-to}}
+      {{#link-to 'about' tagName='li'}} About {{/link-to}}
+    </ul>
     </div>
     <div class="container">
       {{outlet}}
