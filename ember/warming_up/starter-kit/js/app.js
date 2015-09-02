@@ -13,5 +13,6 @@ App.IndexRoute = Ember.Route.extend({
 });
 
 App.IndexController = Ember.Controller.extend({
-  productsCount: 6
-})
+  productsCount: 6,
+  logo: 'images/logo.png'
+});
