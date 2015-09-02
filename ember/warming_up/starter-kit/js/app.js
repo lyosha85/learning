@@ -11,3 +11,7 @@ App.IndexRoute = Ember.Route.extend({
     return ['red', 'yellow', 'blue'];
   }
 });
+
+App.IndexController = Ember.Controller.extend({
+  productsCount: 6
+})
