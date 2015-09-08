@@ -1,0 +1,4 @@
+# this folder is for non berkshelf cookbooks.
+# because the cookbooks folder will be automatically
+# deleted and replaced with the correct versions
+# supplied by berkshelf
