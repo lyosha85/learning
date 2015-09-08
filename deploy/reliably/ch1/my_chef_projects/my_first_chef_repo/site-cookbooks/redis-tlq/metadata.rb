@@ -8,4 +8,4 @@ recipe "redis-tlq", "Installs redis"
 
 supports "ubuntu"
 
-depends "build-essential"
+# depends "build-essential"
