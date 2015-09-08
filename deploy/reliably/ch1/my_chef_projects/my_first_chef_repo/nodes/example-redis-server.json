@@ -1,0 +1,10 @@
+{
+  "redis": {
+    "dont_bind": true,
+    "interface": "127.0.0.1"
+  },
+  "run_list":
+    [
+      "role[redis-server]"
+    ]
+}
