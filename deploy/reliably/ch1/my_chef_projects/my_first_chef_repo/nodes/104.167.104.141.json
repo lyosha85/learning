@@ -1,0 +1,7 @@
+{ "redis":{
+    "dont_bind": true
+  },
+  "run_list":[
+    "role[redis-server]"
+  ]
+}
