@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ember Starter Kit</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <script type="text/x-handlebars">
+    <div class="navbar">
+    <ul class="nav navbar-nav navbar-right">
+      {{#link-to 'index' tagName='li' class='navbar-brand'}} Home {{/link-to}}
+      {{#link-to 'about' tagName='li'}} About {{/link-to}}
+    </ul>
+    </div>
+    <div class="container">
+      {{outlet}}
+    </div>
+    <footer class="container"></footer>
+  </script>
+
+  <script type="text/x-handlebars" id="index">
+    <img {{bind-attr src='logo'}} alt="Logo"/>
+    <h1> Welcome to The Flint & Flame!</h1>
+    <p> There are {{ productsCount }} products.</p>
+    <p> Rendered on: {{ time }}</p>
+  </script>
+
+  <script type="text/x-handlebars" id="about">
+  <h1> About </h1>
+  </script>
+
+
+  <script src="js/libs/jquery-1.10.2.js"></script>
+  <script src="js/libs/ember-template-compiler-1.12.0.js"></script>
+  <script src="js/libs/ember-1.12.0.debug.js"></script>
+  <script src="js/app.js"></script>
+  <!-- to activate the test runner, add the "?test" query string parameter -->
+  <script src="tests/runner.js"></script>
+</body>
+</html>
