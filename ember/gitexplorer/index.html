@@ -34,19 +34,21 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-    <div class="container">
+    <div class="container" id="github-app">  <!-- Ember magic happens here! -->	</div>
+
+		<script type="text/x-handlebars">
       <div class="row">
-      	<div class="col-md-12" id="github-app">
-      		<script type="text/x-handlebars">
+      	<div class="col-md-12">
       			<h1>Hello Ember</h1>
       		</script>
       	</div>
       </div>
-    </div>
-    <script>
-    window.Github = Ember.Application.create({
-    	rootElement: "#github-app"
-    });
     </script>
+    
+		<script>
+			window.Github = Ember.Application.create({
+				rootElement: "#github-app"
+			});
+		</script>
   </body>
 </html>
