@@ -19,6 +19,11 @@
       return "showing the window"
     }
   };
+
+  // problem
+  p = popup;
+  popup = null;
+  p.set_color(); // returns an error dues to naming
   </script>
 </body>
 </html>
