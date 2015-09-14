@@ -6,6 +6,9 @@
 </head>
 <body>
   <script>
+
+  title = "this is not what we want"
+
   // global scope
   var popup = {
     dom_element : jQuery("#popup"),
@@ -20,7 +23,10 @@
     }
   };
 
-
+  // seems to work fine in firefox current version
+  // but, tutorial states that it uses the wrong context
+  // but it seems like its showing "color picker" and not whats defined in global scope
+  show = popup.show();
   </script>
 </body>
 </html>
