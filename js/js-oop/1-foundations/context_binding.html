@@ -7,15 +7,12 @@
 <body>
   <script>
   // global scope
-  var prev_color = "this is not what we want!!!"
-
-  // global scope
   var popup = {
     dom_element : jQuery("#popup"),
     title       : "Color Picker",
     prev_color  : "#ffffff",
     set_color   : function(color) {
-      color = color || prev_color;
+      color = color || popup.prev_color;
       return color;
     },
     show        : function(){
