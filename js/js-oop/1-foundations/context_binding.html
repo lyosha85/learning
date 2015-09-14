@@ -24,6 +24,13 @@
     }
   };
 
+  // wrapper that binds the right thing
+  function createBoundWrapper(obj, fn) {
+    return function(){
+      return fn.apply(obj, Array.prototype.slice.call(arguments));
+    }
+  }
+
   var show = function() {
     return popup.show.apply(popup, [1]); // same as call, but it takes an array of arguments
   };
