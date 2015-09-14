@@ -31,9 +31,11 @@
     }
   }
 
-  var show = function() {
-    return popup.show.apply(popup, [1]); // same as call, but it takes an array of arguments
-  };
+  var show = createBoundWrapper(popup, popup.show);
+
+  // now lets do it again with bind
+
+  var show = popup.show.bind(popup); // binds the object to a copy of the function and return a function with the correct value of this
   </script>
 </body>
 </html>
