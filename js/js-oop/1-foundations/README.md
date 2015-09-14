@@ -45,3 +45,8 @@ var o = {
   }
 }
 
+## Scope
+Everything declared has scope. If declared in the file, its global scope, if in a function, its in the functions scope.
+Everything in the global scope, is accessible from anywhere.
+Everything in a function scope, will be available inside that function, not outside. its limited tot he function's scope
+When we nest functions, we can access the inside function variables
