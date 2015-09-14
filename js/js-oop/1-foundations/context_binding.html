@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+  <script>
+  var popup = {
+    dom_element : jQuery("#popup"),
+    title       : "Color Picker",
+    prev_color  : "#ffffff",
+    set_color   : function(color) {
+      color = color || prev_color;
+      return color;
+    },
+    show        : function(){
+      return "showing the window"
+    }
+  };
+  </script>
+</body>
+</html>
