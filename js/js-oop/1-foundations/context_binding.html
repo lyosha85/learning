@@ -23,10 +23,9 @@
     }
   };
 
-  // seems to work fine in firefox current version
-  // but, tutorial states that it uses the wrong context
-  // but it seems like its showing "color picker" and not whats defined in global scope
-  show = popup.show();
+  var show = function() {
+    return popup.show.call(popup); // this executes the show with the popup as the value for this.
+  };
   </script>
 </body>
 </html>
