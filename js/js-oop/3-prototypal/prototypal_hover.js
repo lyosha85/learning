@@ -39,3 +39,28 @@ Tooltip_Button.prototype = {
 var hb = new Tooltip_Button("#button", "#panel");
 
 hb.bind_events();
+
+function Fading_Tooltip_Button (btn, panel) {
+  // idential constructor :-(
+  if (this === window) {
+    return new Tooltip_Button(btn, panel);
+  }
+  this.button = jQuery(btn);
+  this.panel  = jQuery(panel);
+}
+
+Fading_Tooltip_Button.prototype = new Tooltip_Button();
+Fading_Tooltip_Button.prototype.constructor = Fading_Tooltip_Button;
+Fading_Tooltip_Button.prototype.show = function() {
+  this.fadeIn();
+  return this;
+}
+Fading_Tooltip_Button.prototype.hide = function () {
+  this.panel.fadeOut();
+  return this;
+}
+
+hb.unbind_events();
+var hb2 = Fading_Tooltip_Button("#button", "#panel");
+hb2.bind_events();
+
