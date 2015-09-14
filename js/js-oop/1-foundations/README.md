@@ -63,3 +63,5 @@ b = a
 a = { name: "Hai"}
 b.name returns "Hai"
 
+this
+this means use the current object without actually calling its name
