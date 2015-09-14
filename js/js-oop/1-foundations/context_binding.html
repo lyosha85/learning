@@ -25,7 +25,7 @@
   };
 
   var show = function() {
-    return popup.show.call(popup, 1); // this executes the show with the popup as the value for this.
+    return popup.show.apply(popup, [1]); // same as call, but it takes an array of arguments
   };
   </script>
 </body>
