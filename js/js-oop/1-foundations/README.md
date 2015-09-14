@@ -50,3 +50,16 @@ Everything declared has scope. If declared in the file, its global scope, if in 
 Everything in the global scope, is accessible from anywhere.
 Everything in a function scope, will be available inside that function, not outside. its limited tot he function's scope
 When we nest functions, we can access the inside function variables
+
+primitive values - str or a num, when u assign 2 variables tot eh same thing
+a = "test"
+b = a
+a = "something else"
+b returns "test"
+
+but.. reference values point to the same object in memory
+a = { name: "Alex"}
+b = a
+a = { name: "Hai"}
+b.name returns "Hai"
+
