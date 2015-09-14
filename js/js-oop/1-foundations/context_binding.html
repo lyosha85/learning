@@ -18,13 +18,14 @@
       color = color || this.prev_color;
       return color;
     },
-    show        : function(){
+    show        : function(num){
+      console.log(num);
       return "showing '" + this.title + "' window"
     }
   };
 
   var show = function() {
-    return popup.show.call(this); // this executes the show with the popup as the value for this.
+    return popup.show.call(popup, 1); // this executes the show with the popup as the value for this.
   };
   </script>
 </body>
