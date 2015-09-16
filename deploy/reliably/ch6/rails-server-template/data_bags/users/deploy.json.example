@@ -1,0 +1,24 @@
+{
+  "id": "deploy",
+  // generate this with: openssl passwd -1 "d"
+  "password": "$1$p9rzT0Jp$gwahyKxOuAyjne/cDttOq/",
+  // the below should contain a list of ssh public keys which should
+  // be able to login as deploy
+  "ssh_keys": [
+  "MIICXQIBAAKBgQDkaYFKOgdtoH44iDclImh4qVDyYPHSiLKFbL2W3Yq293Yidw4R
+  aLVCTybwmE1xzncbFfcy5VSHaknVkgFihGv4+5OSoYEB9FoTgQPmzPJB0apQMj52
+  GVakxlLjX0AjqTu7gYF0pSlMsCardIDmaiQHECmIxUp/+t3/G+EUNRfdAQIDAQAB
+  AoGAefZkFPBbWwwhmaoSV//BbPxrvqBJP7PCL0BbE52EHiKQr+KGXoFcl+WP01Rf
+  te8a5hmaf1C5C/2TIzjtCF/RDoV2yvxYrhWDcb2mZkZIMsSHgChwpet4Tk1h2DHD
+  t/hj+hiMQwJddE7D9euiNwSJq3Q4oBSc9xgMobHr3smngAECQQDz+PxTsX5Maye/
+  mFyK4k2vmrBE4CGluAO668wKNvjTQTi5TdFobOdqn+zfp+tQVfMC8/Z+bqEmsOUz
+  uWiFoTSBAkEA76wkIRm4T9QQT4Qe7yFBKQ1/iNFbV446s9HqbqfMp6Cv5oPCu76z
+  z0Lo5cGndsuMFfVD/dAYNFkoQYKY/YhogQJBAK/6YMddt+QXRsyEcfwb0D1iLtL/
+  eEW4vbgObVbQ4BpBaVEAOJRCOYpHYOzSioGf/XGb16jK06K85haxHhuFdAECQEZh
+  SXbC48HlZyjChob4P/c7NIFL4UPTy180vF/kPI/Y+u55ML0LIigx4MxfUrrqyOdF
+  z8J/0ivFJrIeFKkW3oECQQCZoer97z04dvMpEe0soDvAqpJ2aIpsjq96oK+hch5c
+  8E6WCEAT9hrfWkgQLlI6D8QzICd6nINHwSRi8LYU6xRZ"
+  ],
+  "groups": [ "sysadmin"],
+  "shell": "\/bin\/bash"
+}
