@@ -1,7 +1,6 @@
 ---
 driver:
-  name: docker
-  binary: docker.io
+  name: vagrant
 
 provisioner:
   name: chef_zero
