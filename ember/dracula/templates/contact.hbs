@@ -8,9 +8,14 @@
   </div>
 
   <h1> Contact Us </h1>
-  {{#link-to 'phone'}} phone {{/link-to}}
-  {{#link-to 'email'}} email {{/link-to}}
-  <div>
+  <div class="col-md-6">
+  	<ul>
+	  	<li>{{#link-to 'phone'}} phone {{/link-to}}</li>
+	  	<li>{{#link-to 'email'}} email {{/link-to}}</li>
+	  </ul>
+  </div>
+  
+  <div class="col-md-6">
   	{{outlet}}
   </div>
 </div>
