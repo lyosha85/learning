@@ -4,6 +4,7 @@ App = Ember.Application.create({
 
 App.Router.map(function() {
   this.route('about', {path: '/about_us'});
+  this.route('products');
 });
 
 App.IndexRoute = Ember.Route.extend({
