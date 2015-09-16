@@ -1,0 +1,25 @@
+<h2><%= @task.name %></h2>
+
+<span class="label <%= badge_for(@task, "label-") %>"><%= @task.state %></span>
+
+<p><%= @task.description %></p>
+
+<p>Created By: <%= @created_by_user.username %></p>
+
+<% if logged_in? %>
+  <%= form_for(@task, html: {class: "form-inline"}) do |f| %>
+    <%= f.select(:state) do %>
+      <% @valid_states.each do |c| %>
+        <%= content_tag(:option, c, value: c) %>
+      <% end %>
+    <% end %>
+    <%= f.submit 'Change Task State' %>
+  <% end %>
+  <% if @subscription %>
+    <%= form_for(@subscription) do |f| %>
+      <%= f.hidden_field :user_id, value: @subscription.user_id %>
+      <%= f.hidden_field :task_id, value: @subscription.task_id %>
+      <%= f.submit 'Subscribe to Task Updates' %>
+    <% end %>
+  <% end %>
+<% end %>

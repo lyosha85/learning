@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+  <script>
+
+  title = "this is not what we want"
+
+  // global scope
+  var popup = {
+    dom_element : jQuery("#popup"),
+    title       : "Color Picker",
+    prev_color  : "#ffffff",
+    set_color   : function(color) {
+      color = color || this.prev_color;
+      return color;
+    },
+    show        : function(num){
+      console.log(num);
+      return "showing '" + this.title + "' window"
+    }
+  };
+
+  // wrapper that binds the right thing
+  function createBoundWrapper(obj, fn) {
+    return function(){
+      return fn.apply(obj, Array.prototype.slice.call(arguments));
+    }
+  }
+
+  var show = createBoundWrapper(popup, popup.show);
+
+  // now lets do it again with bind
+
+  var show = popup.show.bind(popup); // binds the object to a copy of the function and return a function with the correct value of this
+  </script>
+</body>
+</html>

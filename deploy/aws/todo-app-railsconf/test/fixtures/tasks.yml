@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: One Sample Task
+  description: A sample task that works well enough.
+  state: TODO
+  user_id: 1
+
+two:
+  name: Second Sample Task
+  description: Another sample task is needed, perhaps.
+  state: WIP
+  user_id: 1

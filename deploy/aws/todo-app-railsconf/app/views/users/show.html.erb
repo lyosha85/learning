@@ -1,0 +1,7 @@
+<h2><%= @user.username %></h2>
+
+<% unless @user.tasks.empty? %>
+  <% @user.tasks.each do |task| %>
+    <p>Subscribed To: <%= task.name %><p>
+  <% end %>
+<% end %>

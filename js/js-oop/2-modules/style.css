@@ -1,0 +1,40 @@
+body {
+margin: 50px;
+background: #ececec;
+font:13px/1.5 "helvetica neue";
+}
+#button {
+border:1px solid #474747;
+width:100px;
+text-align:center;
+padding:10px 20px;
+-moz-border-radius:10px;
+margin:5px auto;
+background:#ccc;
+font-size:150%;
+}
+
+#panel:before {
+	content:"";
+	position:absolute;
+	width:0;
+	height:0;
+	border-width: 0 15px 15px; /* vary these values to change the angle of the vertex */
+	border-style:solid;
+	border-color:#474747 transparent;
+top:-15px;
+left:100px;
+}
+#panel {
+display:none;
+position:relative;
+background:#474747;
+border:1px solid #fff;
+padding: 20px;
+width: 200px;
+margin:auto;
+text-align:center;
+-moz-border-radius:5px;
+color:#ececec;
+}
+
