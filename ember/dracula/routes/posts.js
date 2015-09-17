@@ -1,3 +1,3 @@
-Blogger.PostsRoutes = Ember.Route.extend({
+Blogger.PostsRoute = Ember.Route.extend({
 
 });
