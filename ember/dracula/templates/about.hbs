@@ -5,6 +5,7 @@
 
 {{#if isPictureShowing}}
 	<img src="img/vampire.jpg" alt="">
+	<button class="btn btn-info" {{action 'hidePicture'}}>hide photo</button>
 {{else}}
 	<button class="btn btn-info" {{action 'showPicture'}}></button>
 {{/if}}
