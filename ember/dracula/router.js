@@ -4,5 +4,6 @@ Blogger.Router.map( function() {
   this.resource('contact', {path: 'contact'}, function(){
   	this.resource('phone');
   	this.resource('email');
-  });
+  }),
+  this.resource('comments');
 });
