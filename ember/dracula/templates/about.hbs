@@ -2,3 +2,9 @@
 <p> This site is Draculas blog lolz </p>
 
 <button class="btn btn-primary" {{action 'showRealName'}}> Click here to learn Dracula's real name</button>
+
+{{#if isPictureShowing}}
+	<img src="img/vampire.jpg" alt="">
+{{else}}
+	<button class="btn btn-info" {{action 'showPicture'}}></button>
+{{/if}}
