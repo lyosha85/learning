@@ -4,3 +4,4 @@ cookbooks/**/*
 .ruby-gemset
 .vagrant
 berks-cookbooks/
+.gems
