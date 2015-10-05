@@ -1,2 +1,19 @@
 <h1>{{title}}</h1>
+
+{{#if isEditing}}
+	<form>
+		<div class="form-group">
+			<label for="title">Title</label>
+			{{input id="title" class="form-control" value=title}}
+
+			<label for="body">Body</label>
+			{{textarea id="body" rows="15" class="form-control" value=body}}
+
+			<button class="btn btn-primary" {{action 'save'}}>Save</button>
+		</div>
+	</form>
+{{else}}
 <p>{{body}}</p>
+
+<button class="btn btn-primary" {{action 'edit'}}>Edit</button>
+{{/if}}
