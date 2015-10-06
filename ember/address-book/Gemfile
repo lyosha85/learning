@@ -37,9 +37,17 @@ group :development, :test do
   # Works with the RailsPanel chrome extension 
   gem 'meta_request'
 
+  # rspec
   gem 'factory_girl_rails' # factories for tests
-  gem 'rspec-rails' #rspec lol
+  gem 'rspec-rails'
   gem 'spring-commands-rspec' # increase the speeds of tests by preloading rspec
+
+  # teaspoon
+  gem 'guard-rspec'
+  gem 'guard-teaspoon', '0.0.4'
+  gem 'teaspoon', '0.7.9'
+  gem 'spring-commands-teaspoon'
+  # gem "phantomjs", ">= 1.8.1.1" 
 end
 
 group :development do
