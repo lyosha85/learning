@@ -38,14 +38,14 @@ Teaspoon.configure do |config|
 
     # Specify a file matcher as a regular expression and all matching files will be loaded when the suite is run. These
     # files need to be within an asset path. You can add asset paths using the `config.asset_paths`.
-    suite.matcher = "{test/javascripts,app/assets}/**/*_test.{js,js.coffee,coffee}"
+    suite.matcher = "{test/javascripts,app/assets,spec/javascriptss}/**/*_test.{js,js.coffee,coffee}"
 
     # Load additional JS files, but requiring them in your spec helper is the preferred way to do this.
     #suite.javascripts = []
 
     # You can include your own stylesheets if you want to change how Teaspoon looks.
     # Note: Spec related CSS can and should be loaded using fixtures.
-    #suite.stylesheets = ["teaspoon"]
+    suite.stylesheets = ["teaspoon"]
 
     # This suites spec helper, which can require additional support files. This file is loaded before any of your test
     # files are loaded.
