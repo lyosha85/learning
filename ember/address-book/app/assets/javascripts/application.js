@@ -11,8 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery
-//= require jquery_ujs
 //= require handlebars
 //= require ember
 //= require ember-data
@@ -20,6 +18,11 @@
 //= require ./address_book
 
 // for more details see: http://emberjs.com/guides/application/
+
+<% if Rails.env.development? %>
+	Ember.LOG_TRANSITIONS = true;
+<% end %>
+
 AddressBook = Ember.Application.create();
 
 //= require_tree .
