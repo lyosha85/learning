@@ -36,6 +36,10 @@ group :development, :test do
   gem 'quiet_assets'
   # Works with the RailsPanel chrome extension 
   gem 'meta_request'
+
+  gem 'factory_girl_rails' # factories for tests
+  gem 'rspec-rails' #rspec lol
+  gem 'spring-commands-rspec' # increase the speeds of tests by preloading rspec
 end
 
 group :development do
