@@ -40,13 +40,11 @@ group :development, :test do
   # rspec
   gem 'factory_girl_rails' # factories for tests
   gem 'rspec-rails'
-  gem 'spring-commands-rspec' # increase the speeds of tests by preloading rspec
 
   # teaspoon
   gem 'guard-rspec'
-  gem 'guard-teaspoon', '0.0.4'
-  gem 'teaspoon', '0.7.9'
-  gem 'spring-commands-teaspoon'
+  gem 'guard-teaspoon'
+  gem 'teaspoon-qunit'
   # gem "phantomjs", ">= 1.8.1.1" 
 end
 
