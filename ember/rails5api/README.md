@@ -1,24 +1,10 @@
 ## README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+rails s
 
-Things you may want to cover:
+ curl -H "Content-Type:application/json; charset=utf-8" -d '{"todo": {"title":"Todo 1","isCompleted":false}}' http://localhost:3000/todos
 
-* Ruby version
+ curl -H "Content-Type:application/json; charset=utf-8" -d '{"todo": {"title":"Todo 2","isCompleted":false}}' http://localhost:3000/todos
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ curl http://localhost:3000/todos   
+ 
