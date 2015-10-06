@@ -14,8 +14,9 @@
 //= require handlebars
 //= require ember
 //= require ember-data
+AddressBook = Ember.Application.create();
 //= require_self
-//= require ./address_book
+//= require ./address_book.js
 
 // for more details see: http://emberjs.com/guides/application/
 
@@ -23,6 +24,5 @@
 	Ember.LOG_TRANSITIONS = true;
 <% end %>
 
-AddressBook = Ember.Application.create();
 
 //= require_tree .
