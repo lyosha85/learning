@@ -45,7 +45,7 @@ Teaspoon.configure do |config|
 
     # You can include your own stylesheets if you want to change how Teaspoon looks.
     # Note: Spec related CSS can and should be loaded using fixtures.
-    suite.stylesheets = ["teaspoon"]
+    suite.stylesheets = ["teaspoon","teaspoon_custom"]
 
     # This suites spec helper, which can require additional support files. This file is loaded before any of your test
     # files are loaded.
