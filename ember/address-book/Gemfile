@@ -45,7 +45,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'guard-teaspoon'
   gem 'teaspoon-qunit'
-  # gem "phantomjs", ">= 1.8.1.1" 
+  gem "phantomjs", ">= 1.8.1.1" 
 end
 
 group :development do

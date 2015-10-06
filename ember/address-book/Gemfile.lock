@@ -121,6 +121,7 @@ GEM
     notiffany (0.0.8)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    phantomjs (1.9.8.0)
     pry (0.10.2)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -233,6 +234,7 @@ DEPENDENCIES
   guard-teaspoon
   jquery-rails (= 3.0.3)
   meta_request
+  phantomjs (>= 1.8.1.1)
   quiet_assets
   rails (= 4.2.4)
   rspec-rails
