@@ -1,0 +1,143 @@
+== README
+
+Git
+
+sudo apt-get update
+sudo apt-get install  -y
+
+PostgreSQL
+
+Locale
+
+sudo /usr/sbin/update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
+
+PostgreSQL installation
+
+sudo apt-get install postgresql libpq-dev -y
+
+Creating the Database Instance & Adding a User
+
+sudo mkdir -p /usr/local/pgsql/data
+sudo chown postgres:postgres /usr/local/pgsql/data
+sudo su postgres
+/usr/lib/postgresql/9.1/bin/initdb -D /usr/local/pgsql/data
+createuser vagrant
+exit
+
+Add privilege for Vagrant to create database.
+
+postgres=> ALTER ROLE vagrant CREATEDB; postgres-> \q vagrant@vagrant-ubuntu-trusty-64:~$
+
+Verifying Install and Permissions
+
+createdb sample_db
+psql sample_db 
+psql sample_db
+psql (9.1.12)
+Type "help" for help.
+sample_db=# \q
+
+
+RVM
+
+sudo apt-get install curl
+\curl -sSL https://get.rvm.io | bash
+source /home/vagrant/.rvm/scripts/rvm
+Note that there will be no output from this command, but you can now see RVM:
+which rvm
+/home/vagrant/.rvm/bin/rvm
+
+Requirements
+
+rvm requirements
+
+rvm list known
+rvm install 1.9.3
+rvm install 2.2.1
+
+Default Ruby
+
+rvm use 2.2.1 --default
+which ruby
+/home/vagrant/.rvm/rubies/ruby-2.1.1/bin/ruby
+ruby -v
+ruby 2.1.1p76 (2014-02-24 revision 45161) [i686-linux]
+
+Bundler
+gem install bundler
+
+JavaScript Runtime
+sudo apt-get install nodejs
+
+
+Verification
+Let’s clone and run a sample Rails application to make sure everything is setup correctly.
+
+Clone the Project
+
+Within the SSH session:
+cd /vagrant
+git clone https://github.com/JumpstartLab/platform_validator.git
+cd platform_validator
+
+Rails Setup
+rvm gemset use platform_validator --create
+bundle
+rake db:create db:migrate db:seed
+
+Rails Console
+
+rails console
+2.1.1 :001 > Person.count
+(0.3ms)  SELECT COUNT(*) FROM "people"
+=> 6
+2.1.1 :002 > Person.all
+Person Load (0.6ms)  SELECT "people".* FROM "people"
+
+
+Run the Server
+rails server
+=> Booting Thin
+=> Rails 4.0.4 application starting in development on http://0.0.0.0:3000
+=> Run `rails server -h` for more startup options
+=> Ctrl-C to shutdown server
+Thin web server (v1.6.2 codename Doc Brown)
+Maximum connections set to 1024
+Listening on 0.0.0.0:3000, CTRL+C to stop
+Then, in your host operating system, open http://localhost:3000 in a browser. You should see the Welcome abord page – you’re done!
+
+Cloning
+
+Once you’ve got a VM ready to go, you might want to back it up or copy it to other computers.
+
+Creating the Image
+
+Start within the same folder as the Vagrantfile and:
+
+close  minimize  deactivate
+Terminal
+$
+vagrant package
+It’ll shutdown the VM if it’s running, then export a movable image named package.box which is about 650mb.
+
+Move the file by any normal means (SCP, flash drive, network share, etc).
+
+Setup the Second Machine
+
+Now on the machine where you want to run the VM you’ll need to install VirtualBox and Vagrant using the same steps as above.
+
+Setup the Box
+
+In a terminal from the same directory where the package.box file is, run the following:
+
+vagrant box add package.box --name rails_box
+That will "download" the box file to the local Vagrant install’s set of known boxes.
+
+Provision and Start the Box
+
+Now move to the project directory where the Vagrantfile and your application code will live. Then:
+
+vagrant init rails_box
+vagrant up
+It’ll clone the box then boot. Now you can vagrant ssh and you’re ready to go!
+
