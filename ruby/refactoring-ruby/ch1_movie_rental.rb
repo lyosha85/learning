@@ -1,7 +1,7 @@
 class Movie
-	REGULAR
-	NEW_RELEASE
-	CHILDRENS
+	REGULAR = 0
+	NEW_RELEASE = 1
+	CHILDRENS = 2
 
 	attr_reader :title
 	attr_accessor :price_code
@@ -18,3 +18,4 @@ class Rental
 		@movie, @days_rented = movie, days_rented
 	end
 end
+
