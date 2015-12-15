@@ -19,3 +19,6 @@ class Rental
 	end
 end
 
+class Customer
+	attr_reader :name
+end
