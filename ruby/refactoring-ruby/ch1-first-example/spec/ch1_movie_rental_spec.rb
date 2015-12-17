@@ -1,0 +1,1 @@
+require 'ch1_movie_rental'
