@@ -27,5 +27,14 @@ RSpec.describe Rental do
 end
 
 RSpec.describe Customer do
+	let(:movie) { Movie.new("Fight Club", 100) }
+	let(:rental) { Rental.new( Movie.new("Starwars", 102), 6 ) }
+	let(:customer) { Customer.new("Alex")}
+	it "#add_rental" do
+		bindings.pry
 
+
+		customer.add_rental movie
+		customer.rentals.count should eq 1
+	end
 end
