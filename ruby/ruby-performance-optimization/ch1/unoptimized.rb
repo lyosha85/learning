@@ -1,5 +1,7 @@
 require "benchmark"
 
+GC.disable # ~30 % of time spent on garbage collection!
+
 num_rows = 100000
 num_cols = 10
 
