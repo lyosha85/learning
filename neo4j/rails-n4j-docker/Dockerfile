@@ -6,4 +6,4 @@ RUN DISABLE_NEO4J_SESSION=true bundle exec rake assets:precompile
 COPY . /usr/src/app
 RUN bundle install
 EXPOSE 3000
-rails server
+RUN rails server
