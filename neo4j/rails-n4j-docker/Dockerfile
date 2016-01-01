@@ -3,3 +3,7 @@ ENV RAILS_ENV 9f4b48bc8e25da465ddf3c64c5acbe400616e19e15167f61b1d996e5aa8b4812f9
 ENV SECRET_KEY_BASE 9f4b48bc8e25da465ddf3c64c5acbe400616e19e15167f61b1d996e5aa8b4812f9dd2c2ee7cc8871d1e6abf46c3a7c2adb8000f8e23782c822321c6424b1c466
 ENV NEO4J_URL http://neo4j:7474/
 RUN DISABLE_NEO4J_SESSION=true bundle exec rake assets:precompile
+COPY . /usr/src/app
+RUN bundle install
+EXPOSE 3000
+rails server
