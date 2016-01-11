@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      div {width: 50px; height: 50px; margin: 5px;}
+      .static { background-color: red; }
+      .relative {background-color: green; border: 1px solid black; position: relative;}
+      .absolute {background-color: pink; border: 1px solid black; position: absolute;
+                 margin: 5px auto;}
+      .absolute_container {border: 1px solid blue; padding 50px; height: 200px; width: 200px;}
+      .box1{top: 25px;}
+      .box2{top: -10px;left: -15px; z-index: 1;}
+      .box3{top: -25px; left: 15px;}
+    </style>
+  </head>
+  <body>
+    <div class="absolute_container">
+      <div class="absolute box1">1</div>
+      <div class="absolute box2">2</div>
+      <div class="absolute box3">3</div>
+    </div>
+    <div class="static box1">1</div>
+    <div class="static box2">2</div>
+    <div class="static box3">3</div>
+    <div class="relative box1">1</div>
+    <div class="relative box2">2</div>
+    <div class="relative box3">3</div>
+
+  </body>
+</html>
