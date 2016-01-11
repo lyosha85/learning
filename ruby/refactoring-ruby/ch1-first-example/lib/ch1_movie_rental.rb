@@ -41,12 +41,12 @@ class Customer
 			case element.movie.price_code
 			when Movie::REGULAR
 				this_amount += 2
-				this_amount += (elements.days_rented -2) * 1.5 if element.days_rented > 2
+				this_amount += (elements.days_rented - 2) * 1.5 if element.days_rented > 2
 			when Movie::NEW_RELEASE
 				this_amount += element.days_rented * 3
 			when Movie::CHILDRENS
 				this_amount += 1.5
-				this_amount += (element.days_rented -3) * 1.5 if element.days_rented > 3
+				this_amount += (element.days_rented - 3) * 1.5 if element.days_rented > 3
 			end
 
 			# add frequent renter points
