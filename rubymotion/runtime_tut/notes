@@ -1,0 +1,111 @@
+[string drawAtPoint:point withFront:font]; # draws a string
+
+string.drawAtPoint(point, withFont: font) # objective-c messagesent from rubymotion
+  # same as:
+  string.send(:'drawAtPoint', point, font)
+
+# defined in ruby motion:
+# defines the drawAtPoint:withFot message on the DrawingProxy
+class DrawingProxy
+  def drawAtPoint(point, withFont:font)
+    @str.drawAtPoint(point, withFont:font)
+  end
+end
+
+# this syntax to define obj-c added to rubymotion, not part of ruby standard
+
+
+@class Foo
+- (id)foo;  # - defines instance methods
+end
+
+@class Foo
++ (id)foo;  # + defines class methods
+end
+# (id) is type information
+
+@class Test
++ (id)sharedInstanceWithObject:(id)obj1 andObject:(id)obj2; # obj1 and obj2 are variables from the arguments.
+end
+
+instance = Test.sharedInstanceWithOject(obj1, andObject:obj2) # called from ruby like this
+
+
+
+# obj-c selector shortcuts
+setFoo            foo=
+isFoo             foo?
+objectForKey:     []
+setOject:forKey:  []=
+
+#As an example, the setHidden: and isHidden methods of UIView can be called
+view.hidden = true unless view.hidden?
+
+
+
+#super
+
+ #obj-c
+
+@interface VideoController : MediaController
+
+@implementation VideoController
+- (void)play:(NNString *)song {
+  [super play:song];
+  //...
+}
+
+  #in rubymotion:
+
+class VideoController < MediaController
+  def play(song)
+    super
+    # ...
+  end
+end
+
+
+#obj-c you can call method in superclass directly,.. incase of init
+
+@interface CustomView : UIView
+@property (copy) NSString :text;
+@end
+
+@implementation CustomView
+- (id) initWithFrame:(CGRect)frame {
+  [super initWithFrame:frame];
+  self.text = @"";
+  return self;
+}
+
+# in rubymotion, you need to alias:
+
+class CustomView < UIView
+  alias :'super_initWithFrame:' :'initWithFrame'
+  # if your method takes multiple arguments, you can alias that as well
+  # alias :'renameWithArg1:arg2' :'methodWithArg1:arg2'
+
+  def initWithFrame(frame)
+    super.tap do
+      @text = ' '
+    end
+  end
+
+  def initWithText(text)
+    font = UIFont.systemFrontOfSize(12)
+    size = text.sizeWithFont(font)
+    super_initWithFrame([[0,0],size]).tap do
+      @text = text
+    end
+  end
+end
+
+
+
+
+# builtin classes
+ # you can use any foundation framework classes (apple base layer)
+ # start with NS (NeXTSTEP - oldname)
+ # root class object is NSObject
+
+
