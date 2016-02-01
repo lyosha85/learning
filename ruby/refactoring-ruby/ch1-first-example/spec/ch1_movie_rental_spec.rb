@@ -31,7 +31,7 @@ RSpec.describe Customer do
 	let(:rental) { Rental.new( Movie.new("Starwars", 102), 6 ) }
 	let(:customer) { Customer.new("Alex")}
 	it "#add_rental" do
-		bindings.pry
+		binding.pry
 
 
 		customer.add_rental movie
