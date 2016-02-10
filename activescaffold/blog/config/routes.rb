@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users do as_routes end
   resources :posts
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
