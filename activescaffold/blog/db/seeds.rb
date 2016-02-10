@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 n = 0
-10.times { User.create!(name: "User #{n}"); n+=1}
+10.times { User.create!(name: "User #{n}", active: [true,false].sample); n+=1}
 
 50.times { Post.create(user: User.all.sample, title: "Title", body:"Body")}
 puts "#{User.count} users. #{Post.count} posts."
