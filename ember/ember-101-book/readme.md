@@ -31,3 +31,4 @@
       namespace: 'api'
     });
   ```
+ 0. Now, lets use ember server --proxy http://api.ember-cli-101.com to use the book's backend. 
