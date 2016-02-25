@@ -25,3 +25,9 @@
   0. Second, if no adapter is specified for the model, then the resolver checks if we specified an application adapter. As we can see, it returns undefined, which means we didn’t specify one
   0. Third, if no model or application adapter is found, then ember data falls back to the default adapter, the JSONAPIAdapter. We can check the implementation for this directly in the adapterFor32 function in ember data.
  0. Since we want to work with a different adapter, we need to tell ember to do so. `ember install active-model-adapter` And then run ember g adapter application to create an application adapter `ember g adapter application`
+ 0. This will namespace our requests to /api/#{resource}
+  ```
+    export default ActiveModelAdapter.extend({
+      namespace: 'api'
+    });
+  ```
