@@ -15,7 +15,3 @@
 /libpeerconnection.log
 npm-debug.log
 testem.log
-
-node_modules/
-
-bower_components/
