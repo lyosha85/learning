@@ -1,0 +1,11 @@
+<%= simple_form_for(@visit, html: { class: 'form-horizontal' }) do |f| %>
+  <%#= f.collection_check_boxes(:choices, @visit.possible_choices, :first, :last) do |b| %>
+    <%#= b.label { b.check_box + b.text } %>
+  <%# end %>
+  <% @visit.possible_choices.each do |choice| %>
+    <%= check_box_tag "visit[choices][]", choice, @visit.choices.include?(choice) ? "checked" : nil  %>
+  <% end %>
+  <%= f.input :freetext %>
+  <%= f.input :visit_reason, as: :hidden %>
+  <%= f.button :submit %>
+<% end %>
